@@ -26,7 +26,7 @@
           <li class="nav-item">
             <a class="nav-link" href="journal.html">Journal</a>
           </li>
-        </ul>
+        </ul>       
       </div>
     </div>
   </nav>
@@ -52,6 +52,8 @@
           <div class="card-body">
             <p class="card-text text-light">This is where I'll showcase my latest work. Click on each project for more details.</p>
             <div id="repoDetails" class="text-light"></div>
+            <div id="repoDetails" class="text-light"></div>
+            <div id="latestCommits" class="mt-3 text-light"></div>
           </div>
         </div>
       </section>
@@ -138,6 +140,81 @@
       }
 
       fetchRepoDetails();
+    });
+
+      document.addEventListener("DOMContentLoaded", function () {
+      const toggleButton = document.getElementById("darkModeToggle");
+      const body = document.body;
+
+      function applyTheme(theme) {
+          if (theme === "light") {
+              body.classList.add("light-mode");
+              toggleButton.textContent = "Switch to Dark Mode";
+          } else {
+              body.classList.remove("light-mode");
+              toggleButton.textContent = "Switch to Light Mode";
+          }
+      }
+
+      let currentTheme = localStorage.getItem("theme") || "dark";
+      applyTheme(currentTheme);
+
+      toggleButton.addEventListener("click", function () {
+          currentTheme = currentTheme === "dark" ? "light" : "dark";
+          localStorage.setItem("theme", currentTheme);
+          applyTheme(currentTheme);
+      });
+  });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const repoDetailsContainer = document.getElementById("repoDetails");
+        const commitsContainer = document.getElementById("latestCommits");
+        const username = "SassBlanket98"; // Replace with your GitHub username
+        const repoName = "My-Ultimate-Website"; // Replace with your repository name
+
+        function fetchRepoDetails() {
+            fetch(`https://api.github.com/repos/${username}/${repoName}`)
+                .then(response => response.json())
+                .then(repo => {
+                    const repoDetails = `
+                        <h5>${repo.name}</h5>
+                        <p>${repo.description}</p>
+                        <p>🌟 ${repo.stargazers_count} | 🍴 ${repo.forks_count}</p>
+                        <p>🔗 <a href="${repo.html_url}" target="_blank">${repo.html_url}</a></p>
+                        <p>🕒 Last updated: ${new Date(repo.updated_at).toDateString()}</p>
+                        <a href="${repo.html_url}" class="btn btn-danger" target="_blank">View on GitHub</a>
+                    `;
+                    repoDetailsContainer.innerHTML = repoDetails;
+                })
+                .catch(error => {
+                    console.error("Error fetching repository details:", error);
+                    repoDetailsContainer.innerHTML = "<p>Failed to load repository details.</p>";
+                });
+        }
+
+        function fetchLatestCommits() {
+            fetch(`https://api.github.com/repos/${username}/${repoName}/commits`)
+                .then(response => response.json())
+                .then(commits => {
+                    let commitList = `<h5>Latest Commits</h5><ul class="list-group">`;
+                    commits.slice(0, 5).forEach(commit => {
+                        commitList += `
+                            <li class="list-group-item bg-secondary text-light">
+                                <strong>${commit.commit.message}</strong>
+                                <br>by ${commit.commit.author.name} on ${new Date(commit.commit.author.date).toDateString()}
+                            </li>`;
+                    });
+                    commitList += `</ul>`;
+                    commitsContainer.innerHTML = commitList;
+                })
+                .catch(error => {
+                    console.error("Error fetching commits:", error);
+                    commitsContainer.innerHTML = "<p>Failed to load commits.</p>";
+                });
+        }
+
+        fetchRepoDetails();
+        fetchLatestCommits();
     });
   </script>
 </body>
