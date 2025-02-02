@@ -37,46 +37,46 @@
 
   <script>
     async function fetchRepositories() {
-        try {
-            let response = await fetch('http://localhost:3000/api/repos');
-            if (!response.ok) {
-                throw new Error(`API error: ${response.status} ${response.statusText}`);
-            }
-
-            let repos = await response.json();
-            console.log(repos); // Debugging output
-
-            const repoContainer = document.getElementById("repoContainer");
-            repoContainer.innerHTML = "";
-
-            for (let repo of repos.slice(0, 6)) {
-                let languagesResponse = await fetch(`http://localhost:3000/api/languages?url=${encodeURIComponent(repo.languages_url)}`);
-                let languages = await languagesResponse.json();
-                let languagesList = Object.keys(languages).join(", ") || "Unknown";
-
-                let commitsResponse = await fetch(`http://localhost:3000/api/commits?url=${encodeURIComponent(repo.commits_url.replace("{/sha}", ""))}`);
-                let commits = await commitsResponse.json();
-                let latestCommits = commits.slice(0, 3).map(commit => `<li>${commit.commit.message} by ${commit.commit.author.name}</li>`).join("\n");
-
-                let repoCard = `
-                  <div class="col-md-6">
-                    <div class="card bg-secondary border-danger">
-                      <div class="card-header text-danger">${repo.name}</div>
-                      <div class="card-body">
-                        <p>${repo.description || "No description available"}</p>
-                        <p>Languages: ${languagesList}</p>
-                        <p>⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count}</p>
-                        <p>Last updated: ${new Date(repo.updated_at).toLocaleDateString()}</p>
-                        <ul>${latestCommits}</ul>
-                      </div>
-                    </div>
-                  </div>
-                `;
-                repoContainer.innerHTML += repoCard;
-            }
-        } catch (error) {
-            console.error('Error fetching data:', error);
+      try {
+        let response = await fetch('http://localhost:3000/api/repos');
+        if (!response.ok) {
+          throw new Error(`API error: ${response.status} ${response.statusText}`);
         }
+
+        let repos = await response.json();
+        console.log('Fetched Repositories:', repos); // Debugging output
+
+        const repoContainer = document.getElementById("repoContainer");
+        repoContainer.innerHTML = "";
+
+        for (let repo of repos.slice(0, 6)) {
+          let languagesResponse = await fetch(`http://localhost:3000/api/languages?url=${encodeURIComponent(repo.languages_url)}`);
+          let languages = await languagesResponse.json();
+          let languagesList = Object.keys(languages).join(", ") || "Unknown";
+
+          let commitsResponse = await fetch(`http://localhost:3000/api/commits?url=${encodeURIComponent(repo.commits_url.replace("{/sha}", ""))}`);
+          let commits = await commitsResponse.json();
+          let latestCommits = commits.slice(0, 3).map(commit => `<li>${commit.commit.message} by ${commit.commit.author.name}</li>`).join("\n");
+
+          let repoCard = `
+            <div class="col-md-6">
+              <div class="card bg-secondary border-danger">
+                <div class="card-header text-danger">${repo.name}</div>
+                <div class="card-body">
+                  <p>${repo.description || "No description available"}</p>
+                  <p>Languages: ${languagesList}</p>
+                  <p>⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count}</p>
+                  <p>Last updated: ${new Date(repo.updated_at).toLocaleDateString()}</p>
+                  <ul>${latestCommits}</ul>
+                </div>
+              </div>
+            </div>
+          `;
+          repoContainer.innerHTML += repoCard;
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     }
 
     fetchRepositories();
