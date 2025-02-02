@@ -1,99 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Journal - My Portfolio & Journal</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/custom.css" />
-</head>
-<body class="bg-dark text-light">
-  <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-3 border-danger">
-    <div class="container">
-      <a class="navbar-brand text-danger" href="index.html">My Portfolio & Journal</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
-              aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="journal.html">Journal</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-  <!-- Journal Hero Section -->
-  <section class="hero py-5 text-center">
-    <div class="container">
-      <h1 class="display-4 text-danger">My Journal</h1>
-      <p class="lead">Reflections, insights, and daily thoughts.</p>
-    </div>
-  </section>
-  
-  <!-- Journal Entries -->
-  <main class="container my-5">
-    <div class="card bg-secondary border-danger">
-      <div class="card-header text-center text-danger">
-        Journal Entries
-      </div>
-      <div class="card-body">
-        <div class="accordion" id="journalAccordion"></div>
-      </div>
-    </div>
-    <!-- New Entry Button -->
-    <div class="text-center my-4">
-        <button id="addEntryBtn" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#entryModal">Add New Entry</button>
-    </div>
-  </main>
-  
-  <!-- Footer -->
-  <footer class="bg-black text-center py-3 border-top border-3 border-danger">
-    <div class="container">
-      <small>&copy; 2025 My Portfolio & Journal</small>
-    </div>
-  </footer>
-  
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <!-- Add Journal Entry Modal -->
-  <div class="modal fade" id="entryModal" tabindex="-1" aria-labelledby="entryModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content bg-secondary border-danger text-light">
-        <div class="modal-header">
-          <h5 class="modal-title text-danger" id="entryModalLabel">New Journal Entry</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Journal</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/custom.css">
+    </head>
+    <body class="bg-dark text-light">
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-3 border-danger">
+            <div class="container">
+                <a class="navbar-brand text-danger" href="index.html">David's Website</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent"
+                    aria-controls="navbarContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="projects.html">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="journal.html">Journal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Journal Hero Section -->
+        <section class="hero py-5 text-center">
+            <div class="container">
+                <h1 class="display-4 text-danger">My Journal</h1>
+                <p class="lead">Reflections, insights, and daily thoughts.</p>
+            </div>
+        </section>
+        <!-- Journal Entries -->
+        <main class="container my-5">
+            <div class="card bg-secondary border-danger">
+                <div class="card-header text-center text-danger">Journal Entries</div>
+                <div class="card-body">
+                    <div class="accordion" id="journalAccordion"></div>
+                </div>
+            </div>
+            <!-- New Entry Button -->
+            <div class="text-center my-4">
+                <button
+                    id="addEntryBtn"
+                    class="btn btn-danger"
+                    data-bs-toggle="modal"
+                    data-bs-target="#entryModal"
+                >
+                    Add New Entry
+                </button>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer class="bg-black text-center py-3 border-top border-3 border-danger">
+            <div class="container">
+                <small>&copy; 2025 My Portfolio & Journal</small>
+            </div>
+        </footer>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Add Journal Entry Modal -->
+        <div
+            class="modal fade"
+            id="entryModal"
+            tabindex="-1"
+            aria-labelledby="entryModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content bg-secondary border-danger text-light">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-danger" id="entryModalLabel">
+                            New Journal Entry
+                        </h5>
+                        <button
+                            type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        <input
+                            type="text"
+                            id="entryTitle"
+                            class="form-control mb-2"
+                            placeholder="Entry Title"
+                        >
+                        <textarea
+                            id="entryContent"
+                            class="form-control"
+                            rows="4"
+                            placeholder="Write your thoughts..."
+                        ></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Cancel
+                        </button>
+                        <button type="button" class="btn btn-danger" id="saveEntryBtn">
+                            Save Entry
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          <input type="text" id="entryTitle" class="form-control mb-2" placeholder="Entry Title">
-          <textarea id="entryContent" class="form-control" rows="4" placeholder="Write your thoughts..."></textarea>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-danger" id="saveEntryBtn">Save Entry</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <script>
+        <script>
     function loadEntries() {
-        fetch('/api/journal')
-            .then(response => response.json())
-            .then(entries => {
-                journalAccordion.innerHTML = "";
-                entries.forEach((entry) => {
-                    const entryId = "entry" + entry.id;
-                    const newEntry = `
+      fetch("/api/journal")
+        .then((response) => response.json())
+        .then((entries) => {
+          journalAccordion.innerHTML = "";
+          entries.forEach((entry) => {
+            const entryId = "entry" + entry.id;
+            const newEntry = `
                     <div class="accordion-item bg-dark border-danger">
                         <h2 class="accordion-header" id="heading${entryId}">
                             <button class="accordion-button bg-secondary text-light" type="button" data-bs-toggle="collapse" data-bs-target="#${entryId}" aria-expanded="true" aria-controls="${entryId}">
@@ -101,14 +140,19 @@
                             </button>
                         </h2>
                         <div id="${entryId}" class="accordion-collapse collapse" aria-labelledby="heading${entryId}" data-bs-parent="#journalAccordion">
-                            <div class="accordion-body text-light">${entry.content}</div>
-                            <small class="text-muted">Posted on: ${new Date(entry.date).toLocaleString()}</small>
+                            <div class="accordion-body text-light">${entry.content
+              }</div>
+                            <small class="text-muted">Posted on: ${new Date(
+                entry.date
+              ).toLocaleString()}</small>
                         </div>
                     </div>`;
-                    journalAccordion.insertAdjacentHTML("beforeend", newEntry);
-                });
-            })
-            .catch(error => console.error("Error loading journal entries:", error));
+            journalAccordion.insertAdjacentHTML("beforeend", newEntry);
+          });
+        })
+        .catch((error) =>
+          console.error("Error loading journal entries:", error)
+        );
     }
 
     document.addEventListener("DOMContentLoaded", loadEntries);
@@ -118,29 +162,31 @@
     const entryContent = document.getElementById("entryContent");
     const modal = new bootstrap.Modal(document.getElementById("entryModal"));
 
-    saveEntryBtn.addEventListener("click", function() {
-        const title = entryTitle.value.trim();
-        const content = entryContent.value.trim();
+    saveEntryBtn.addEventListener("click", function () {
+      const title = entryTitle.value.trim();
+      const content = entryContent.value.trim();
 
-        if (title === "" || content === "") {
-            alert("Please enter both title and content.");
-            return;
-        }
+      if (title === "" || content === "") {
+        alert("Please enter both title and content.");
+        return;
+      }
 
-        fetch('/api/journal', {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ title, content })
-        })
-        .then(response => response.json())
+      fetch("/api/journal", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, content }),
+      })
+        .then((response) => response.json())
         .then(() => {
-            entryTitle.value = "";
-            entryContent.value = "";
-            loadEntries(); // Refresh journal entries
-            modal.hide();
+          entryTitle.value = "";
+          entryContent.value = "";
+          loadEntries(); // Refresh journal entries
+          modal.hide();
         })
-        .catch(error => console.error("Error saving journal entry:", error));
+        .catch((error) =>
+          console.error("Error saving journal entry:", error)
+        );
     });
-  </script>
-</body>
+        </script>
+    </body>
 </html>
