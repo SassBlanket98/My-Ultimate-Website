@@ -54,7 +54,7 @@
           let languages = await languagesResponse.json();
           let languagesList = Object.keys(languages).join(", ") || "Unknown";
 
-          let commitsResponse = await fetch(`http://localhost:3000/api/commits?url=${encodeURIComponent(repo.commits_url.replace("{/sha}", ""))}`);
+          let commitsResponse = await fetch(`http://localhost:3000/api/commits?url=${repo.commits_url.replace("{/sha}", "")}`);
           let commits = await commitsResponse.json();
           let latestCommits = commits.slice(0, 3).map(commit => `<li>${commit.commit.message} by ${commit.commit.author.name}</li>`).join("\n");
 

@@ -1,10 +1,15 @@
 const express = require('express');
 const axios = require('axios');
 const path = require('path');
+const cors = require('cors'); // Add this line
 require('dotenv').config();
 
 const app = express();
 const port = 3000;
+
+app.use(cors()); // Add this line
+app.use(express.json()); // Add this line
+app.use(express.urlencoded({ extended: true })); // Add this line
 
 // Serve static files from the root directory
 app.use(express.static(path.join(__dirname)));

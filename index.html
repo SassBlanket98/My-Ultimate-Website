@@ -141,30 +141,6 @@
       fetchRepoDetails();
     });
 
-      document.addEventListener("DOMContentLoaded", function () {
-      const toggleButton = document.getElementById("darkModeToggle");
-      const body = document.body;
-
-      function applyTheme(theme) {
-          if (theme === "light") {
-              body.classList.add("light-mode");
-              toggleButton.textContent = "Switch to Dark Mode";
-          } else {
-              body.classList.remove("light-mode");
-              toggleButton.textContent = "Switch to Light Mode";
-          }
-      }
-
-      let currentTheme = localStorage.getItem("theme") || "dark";
-      applyTheme(currentTheme);
-
-      toggleButton.addEventListener("click", function () {
-          currentTheme = currentTheme === "dark" ? "light" : "dark";
-          localStorage.setItem("theme", currentTheme);
-          applyTheme(currentTheme);
-      });
-  });
-
     document.addEventListener("DOMContentLoaded", function () {
         const repoDetailsContainer = document.getElementById("repoDetails");
         const commitsContainer = document.getElementById("latestCommits");
