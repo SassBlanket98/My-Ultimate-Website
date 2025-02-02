@@ -37,7 +37,7 @@
 
   <script>
     const username = "SassBlanket98";
-    const token = "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"; // Replace with your GitHub token
+    const token = process.env.GITHUB_TOKEN; // Use environment variable
 
     async function fetchRepositories() {
         try {
