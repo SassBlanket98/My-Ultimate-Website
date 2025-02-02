@@ -2,62 +2,93 @@
 
 /* Override Bootstrap's background colors and text colors where needed */
 .bg-black {
-    background-color: #121212 !important;
-  }
-  
-  .bg-secondary {
-    background-color: #1e1e1e !important;
-  }
-  
-  .text-light {
-    color: #f0f0f0 !important;
-  }
-  
-  /* Custom link colors in navbar */
-  .navbar .nav-link {
-    transition: background-color 0.3s ease;
-  }
-  
-  .navbar .nav-link:hover {
-    background-color: #c62828;
-    border-radius: 5px;
-  }
-  
-  /* Customize card header */
-  .card-header {
-    font-weight: bold;
-  }
-  
-  /* Hero section styling */
-  .hero {
-    background: linear-gradient(135deg, #c62828, #000);
-    border-radius: 10px;
-  }
-  
-  /* Ensure buttons maintain the red theme */
-  .btn-danger {
-    background-color: #c62828;
-    border-color: #c62828;
-  }
-  
-  .btn-danger:hover {
-    background-color: #a71d1d;
-    border-color: #a71d1d;
-  }
-  
-  /* Accordion custom styling */
-  .accordion-button {
-    background-color: #1e1e1e;
-    border: 1px solid #c62828;
-  }
-  
-  .accordion-button:not(.collapsed) {
-    background-color: #c62828;
-    color: #f0f0f0;
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
-  }
+  background-color: #121212 !important;
+}
 
-  .card.bg-secondary .card-body,
-  .card.bg-secondary .card-footer {
-    color: white;
-  }
+.bg-secondary {
+  background-color: #1e1e1e !important;
+}
+
+.text-light {
+  color: #f0f0f0 !important;
+}
+
+/* Custom link colors in navbar */
+.navbar .nav-link {
+  transition: background-color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  background-color: #c62828;
+  border-radius: 5px;
+}
+
+/* Customize card header */
+.card-header {
+  font-weight: bold;
+}
+
+/* Hero section styling */
+.hero {
+  background: linear-gradient(135deg, #c62828, #000);
+  border-radius: 10px;
+}
+
+/* Ensure buttons maintain the red theme */
+.btn-danger {
+  background-color: #c62828;
+  border-color: #c62828;
+}
+
+.btn-danger:hover {
+  background-color: #a71d1d;
+  border-color: #a71d1d;
+}
+
+/* Accordion custom styling */
+.accordion-button {
+  background-color: #1e1e1e;
+  border: 1px solid #c62828;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #c62828;
+  color: #f0f0f0;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
+}
+
+.card.bg-secondary .card-body,
+.card.bg-secondary .card-footer {
+  color: white;
+}
+
+/* Carousel custom styling */
+#aboutCarousel {
+  max-width: 80%;
+  margin: auto;
+}
+
+.carousel-inner {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-item {
+  visibility: hidden;
+  opacity: 0;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  position: absolute;
+  width: 100%;
+  min-height: 300px;
+}
+
+.carousel-item.active {
+  visibility: visible;
+  opacity: 1;
+  position: relative;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
