@@ -34,8 +34,8 @@
   <!-- Hero Section -->
   <section class="hero py-5 text-center" id="hero">
     <div class="container">
-      <h1 class="display-4 text-danger">Welcome to My Creative Space</h1>
-      <p class="lead">Explore my projects and daily journal entries through a modern, interactive interface.</p>
+      <h1 class="display-4 text-danger">Welcome To My Website!</h1>
+      <p class="lead">Come check up on my development progression as well as take a look at my latest finished project</p>
       <a href="#projects" class="btn btn-danger btn-lg mt-3">Explore Projects</a>
     </div>
   </section>
@@ -51,6 +51,7 @@
           </div>
           <div class="card-body">
             <p class="card-text text-light">This is where I'll showcase my latest work. Click on each project for more details.</p>
+            <div id="repoDetails" class="text-light"></div>
           </div>
         </div>
       </section>
@@ -106,6 +107,36 @@
         }
       }
       loadLatestEntry();
+    });
+  </script>
+
+  <!-- Fetch GitHub Repository Details -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const repoDetailsContainer = document.getElementById("repoDetails");
+      const username = "SassBlanket98"; // Replace with your GitHub username
+      const repoName = "YT-Downloader"; // Replace with your repository name
+
+      function fetchRepoDetails() {
+        fetch(`https://api.github.com/repos/${username}/${repoName}`)
+          .then(response => response.json())
+          .then(repo => {
+            const repoDetails = `
+              <h5>${repo.name}</h5>
+              <p>${repo.description}</p>
+              <p><strong>Stars:</strong> ${repo.stargazers_count}</p>
+              <p><strong>Forks:</strong> ${repo.forks_count}</p>
+              <a href="${repo.html_url}" class="btn btn-danger" target="_blank">View on GitHub</a>
+            `;
+            repoDetailsContainer.innerHTML = repoDetails;
+          })
+          .catch(error => {
+            console.error("Error fetching repository details:", error);
+            repoDetailsContainer.innerHTML = "<p>Failed to load repository details.</p>";
+          });
+      }
+
+      fetchRepoDetails();
     });
   </script>
 </body>
