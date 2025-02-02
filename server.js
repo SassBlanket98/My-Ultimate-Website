@@ -24,6 +24,7 @@ app.get('/api/repos', async (req, res) => {
         });
         res.json(response.data);
     } catch (error) {
+        console.error('Error fetching repositories:', error.message);
         res.status(500).send('Error fetching repositories');
     }
 });
@@ -38,6 +39,7 @@ app.get('/api/languages', async (req, res) => {
         });
         res.json(response.data);
     } catch (error) {
+        console.error('Error fetching languages:', error.message);
         res.status(500).send('Error fetching languages');
     }
 });
@@ -52,6 +54,7 @@ app.get('/api/commits', async (req, res) => {
         });
         res.json(response.data);
     } catch (error) {
+        console.error('Error fetching commits:', error.message);
         res.status(500).send('Error fetching commits');
     }
 });
