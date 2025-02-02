@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/custom.css" />
+</head>
+
+<body class="bg-dark text-light">
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-3 border-danger">
+    <div class="container">
+      <a class="navbar-brand text-danger" href="index.html">David's Website</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="journal.html">Journal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero py-5 text-center">
+    <div class="container">
+      <img src="Images/UgandanKnuckles.png" alt="Description of image" class="mb-3" style="width: 50px; height: 50px" />
+      <h1 class="display-4 text-danger">About Me</h1>
+      <p class="lead">Learn more about my journey, skills, and interests.</p>
+    </div>
+  </section>
+
+  <!-- Bootstrap Carousel for About Me Sections -->
+  <div id="aboutCarousel" class="carousel slide container">
+    <div class="carousel-inner">
+      <div class="carousel-item active d-flex justify-content-center">
+        <div class="card bg-secondary border-danger text-light p-4 mx-auto" style="max-width: 600px;">
+          <h3 class="text-danger">Biography</h3>
+          <p>I’m David Hill, an IT professional currently studying to become
+            a developer. My background includes experience in First-Line
+            Support and Cyber Security, and I’ve completed certifications in
+            HTML, JavaScript, and Python. My passion for computers has
+            always driven me, and I find great satisfaction in creating
+            something from scratch and making it work.
+            While I face challenges with severe depression and anxiety, I
+              take things one day at a time, guided by the principles of
+              respect, consideration, communication, and financial
+              stability. Outside of my professional journey, I enjoy video
+              games, anime, YouTube, and music. I believe in steady
+              progress, and though I don’t have a long-term vision yet, I’m
+              committed to growing my skills and finding fulfillment in the
+              work I create.</p>
+        </div>
+      </div>
+      <div class="carousel-item d-flex justify-content-center">
+        <div class="card bg-secondary border-danger text-light p-4 mx-auto" style="max-width: 600px;">
+          <h3 class="text-danger">Skills & Expertise</h3>
+          <ul>
+            <li>Experience with Python</li>
+            <li>Experience with HTML, CSS, and JavaScript</li>
+            <li>Experience in First-Line Support</li>
+            <li>Some experience in Cyber Security</li>
+            <li>Experience in repairing TV's</li>
+            <li>Experience in repairing computers</li>
+            <li>Experience in building computers</li>
+          </ul>
+        </div>
+      </div>
+      <div class="carousel-item d-flex justify-content-center">
+        <div class="card bg-secondary border-danger text-light p-4 mx-auto" style="max-width: 600px;">
+          <h3 class="text-danger">Projects & Contributions</h3>
+          <p>Projects I Have Built:</p>
+          <ul>
+            <li>This Website</li>
+            <li>Android Journal Application</li>
+            <li>DMARC, SPF, DKIM, DNS Record Checker</li>
+            <li>Python Calculator</li>
+            <li>YouTube Video Downloader</li>
+            <li>2048</li>
+            <li>Currency Converter</li>
+        </div>
+      </div>
+      <div class="carousel-item d-flex justify-content-center">
+        <div class="card bg-secondary border-danger text-light p-4 mx-auto" style="max-width: 600px;">
+          <h3 class="text-danger">Hobbies & Interests</h3>
+          <ul>
+            <li>Coding</li>
+            <li>PLaying Video Games</li>
+            <li>Watching Anime</li>
+            <li>Watching YouTube videos about the latest tech</li>
+            <li>Listening to Music</li>
+            <li>Disassembling and reassembling computers</li>
+          </ul>
+        </div>
+      </div>
+      <div class="carousel-item d-flex justify-content-center">
+        <div class="card bg-secondary border-danger text-light p-4 mx-auto" style="max-width: 600px;">
+          <h3 class="text-danger">Qualifications</h3>
+          <ul>
+            <li>Modern JavaScript From The Beginning: Brad Traversy - Udemy</li>
+            <li>Python Developer - Sololearn</li>
+            <li>Learn HTML - Codecademy</li>
+            <li>Learn JavaScript - Codecademy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-black text-center py-3 border-top border-3 border-danger">
+    <div class="container">
+      <small>&copy; 2025 David Alexander Hill</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
