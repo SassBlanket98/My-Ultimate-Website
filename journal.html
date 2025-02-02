@@ -51,7 +51,7 @@
     </div>
     <!-- New Entry Button -->
     <div class="text-center my-4">
-        <button id="addEntryBtn" class="btn btn-danger">Add New Entry</button>
+        <button id="addEntryBtn" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#entryModal">Add New Entry</button>
     </div>
   </main>
   
@@ -86,68 +86,60 @@
   </div>
   
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const addEntryBtn = document.getElementById("addEntryBtn");
-        const saveEntryBtn = document.getElementById("saveEntryBtn");
-        const entryTitle = document.getElementById("entryTitle");
-        const entryContent = document.getElementById("entryContent");
-        const journalAccordion = document.getElementById("journalAccordion");
-        const entryModalEl = document.getElementById("entryModal");
-    
-        if (!entryModalEl) {
-            console.error("Modal #entryModal not found!");
+    function loadEntries() {
+        fetch('/api/journal')
+            .then(response => response.json())
+            .then(entries => {
+                journalAccordion.innerHTML = "";
+                entries.forEach((entry) => {
+                    const entryId = "entry" + entry.id;
+                    const newEntry = `
+                    <div class="accordion-item bg-dark border-danger">
+                        <h2 class="accordion-header" id="heading${entryId}">
+                            <button class="accordion-button bg-secondary text-light" type="button" data-bs-toggle="collapse" data-bs-target="#${entryId}" aria-expanded="true" aria-controls="${entryId}">
+                                ${entry.title}
+                            </button>
+                        </h2>
+                        <div id="${entryId}" class="accordion-collapse collapse" aria-labelledby="heading${entryId}" data-bs-parent="#journalAccordion">
+                            <div class="accordion-body text-light">${entry.content}</div>
+                            <small class="text-muted">Posted on: ${new Date(entry.date).toLocaleString()}</small>
+                        </div>
+                    </div>`;
+                    journalAccordion.insertAdjacentHTML("beforeend", newEntry);
+                });
+            })
+            .catch(error => console.error("Error loading journal entries:", error));
+    }
+
+    document.addEventListener("DOMContentLoaded", loadEntries);
+
+    const saveEntryBtn = document.getElementById("saveEntryBtn");
+    const entryTitle = document.getElementById("entryTitle");
+    const entryContent = document.getElementById("entryContent");
+    const modal = new bootstrap.Modal(document.getElementById("entryModal"));
+
+    saveEntryBtn.addEventListener("click", function() {
+        const title = entryTitle.value.trim();
+        const content = entryContent.value.trim();
+
+        if (title === "" || content === "") {
+            alert("Please enter both title and content.");
             return;
         }
-    
-        const modal = new bootstrap.Modal(entryModalEl);
-    
-        addEntryBtn.addEventListener("click", function() {
-            modal.show();
-        });
-    
-        function loadEntries() {
-            const entries = JSON.parse(localStorage.getItem("journalEntries")) || [];
-            journalAccordion.innerHTML = "";
-            entries.forEach((entry, index) => {
-                const entryId = "entry" + index;
-                const newEntry = `
-                <div class="accordion-item bg-dark border-danger">
-                    <h2 class="accordion-header" id="heading${entryId}">
-                        <button class="accordion-button bg-secondary text-light" type="button" data-bs-toggle="collapse" data-bs-target="#${entryId}" aria-expanded="true" aria-controls="${entryId}">
-                            ${entry.title}
-                        </button>
-                    </h2>
-                    <div id="${entryId}" class="accordion-collapse collapse" aria-labelledby="heading${entryId}" data-bs-parent="#journalAccordion">
-                        <div class="accordion-body text-light">${entry.content}</div>
-                    </div>
-                </div>`;
-                journalAccordion.insertAdjacentHTML("beforeend", newEntry);
-            });
-        }
-    
-        saveEntryBtn.addEventListener("click", function() {
-            const title = entryTitle.value.trim();
-            const content = entryContent.value.trim();
-    
-            if (title === "" || content === "") {
-                alert("Please enter both title and content.");
-                return;
-            }
-    
-            const entries = JSON.parse(localStorage.getItem("journalEntries")) || [];
-            const newEntry = { title, content, date: new Date().toISOString() };
-    
-            entries.unshift(newEntry);
-            localStorage.setItem("journalEntries", JSON.stringify(entries));
-    
+
+        fetch('/api/journal', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ title, content })
+        })
+        .then(response => response.json())
+        .then(() => {
             entryTitle.value = "";
             entryContent.value = "";
-    
-            loadEntries();
+            loadEntries(); // Refresh journal entries
             modal.hide();
-        });
-    
-        loadEntries();
+        })
+        .catch(error => console.error("Error saving journal entry:", error));
     });
   </script>
 </body>
