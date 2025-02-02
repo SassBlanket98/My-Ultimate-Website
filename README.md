@@ -1,0 +1,1 @@
+This is my website! I want this to be the place where I can post my thoughts and updates as well as have a central location where people can view my repositories and see what kind of work I have done. Please enjoy
