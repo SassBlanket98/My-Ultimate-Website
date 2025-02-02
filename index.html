@@ -1,249 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Website</title>
-  <!-- Bootstrap CSS (using Bootstrap 5) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Custom CSS overrides -->
-  <link rel="stylesheet" href="css/custom.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body class="bg-dark text-light">
-  <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-3 border-danger">
-    <div class="container">
-      <a class="navbar-brand text-danger" href="#">Davids Website For Showing Updates</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
-              aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="projects.html">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="journal.html">Journal</a>
-          </li>
-        </ul>       
-      </div>
-    </div>
-  </nav>
-  
-  <!-- Hero Section -->
-  <section class="hero py-5 text-center" id="hero">
-    <div class="container">
-      <img src="Images/UgandanKnuckles.png" alt="Description of image" class="mb-3" style="width: 50px; height: 50px;">
-      <h1 class="display-4 text-danger">Welcome To My Website!</h1>
-      <p class="lead">Come check up on my development progression as well as take a look at my latest finished project</p>
-      <a href="#projects" class="btn btn-danger btn-lg mt-3">Explore Projects</a>
-    </div>
-  </section>
-  
-  <!-- Main Content -->
-  <main class="container my-5">
-    <div class="row gy-4">
-      <!-- Projects Section -->
-      <section id="projects" class="col-12 col-lg-6">
-        <div class="card bg-secondary border-danger">
-          <div class="card-header text-center text-danger">
-            Latest Projects
-          </div>
-          <div class="card-body">
-            <p class="card-text text-light">This is where I'll showcase my latest work. Click on each project for more details.</p>
-            <div id="repoDetails" class="text-light"></div>
-            <div id="latestCommits" class="mt-3 text-light"></div>
-          </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Website</title>
+    <!-- Bootstrap CSS (using Bootstrap 5) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS overrides -->
+    <link rel="stylesheet" href="css/custom.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body class="bg-dark text-light">
+    <!-- Navigation Bar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-3 border-danger"
+    >
+      <div class="container">
+        <a class="navbar-brand text-danger" href="#"
+          >David's Website</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="projects.html">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="journal.html">Journal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+          </ul>
         </div>
-      </section>
-      
-      <!-- Journal Section -->
-      <section id="journal" class="col-12 col-lg-6">
-        <div class="card bg-secondary border-danger">
-          <div class="card-header text-center text-danger">
-            Daily Journal
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero py-5 text-center" id="hero">
+      <div class="container">
+        <img
+          src="Images/UgandanKnuckles.png"
+          alt="Description of image"
+          class="mb-3"
+          style="width: 50px; height: 50px"
+        />
+        <h1 class="display-4 text-danger">Welcome To My Website!</h1>
+        <p class="lead">
+          Come check up on my development progression as well as take a look at
+          my latest finished project
+        </p>
+        <a href="#projects" class="btn btn-danger btn-lg mt-3"
+          >Explore Projects</a
+        >
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+      <div class="row gy-4">
+        <!-- Projects Section -->
+        <section id="projects" class="col-12 col-lg-6">
+          <div class="card bg-secondary border-danger">
+            <div class="card-header text-center text-danger">
+              Latest Projects
+            </div>
+            <div class="card-body">
+              <p class="card-text text-light">
+                This is where I'll showcase my latest work. Click on each
+                project for more details.
+              </p>
+              <div id="repoDetails" class="text-light"></div>
+              <div id="latestCommits" class="mt-3 text-light"></div>
+            </div>
           </div>
-          <div class="card-body">
-            <p class="card-text text-light">A personal space to share my daily thoughts and experiences.</p>
-            <div class="accordion" id="journalAccordion">
-              <div class="accordion-item bg-dark border-danger">
-                <h2 class="accordion-header" id="headingOne">
-                  <button class="accordion-button bg-secondary text-light" type="button" data-bs-toggle="collapse" data-bs-target="#entryOne" aria-expanded="true" aria-controls="entryOne">
-                    Most Recent Entry
-                  </button>
-                </h2>
-                <div id="entryOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#journalAccordion">
-                  <div id="latestJournalEntry" class="accordion-body text-light">
-                    Loading latest journal entry...
+        </section>
+
+        <!-- Journal Section -->
+        <section id="journal" class="col-12 col-lg-6">
+          <div class="card bg-secondary border-danger">
+            <div class="card-header text-center text-danger">Daily Journal</div>
+            <div class="card-body">
+              <p class="card-text text-light">
+                A personal space to share my daily thoughts and experiences.
+              </p>
+              <div class="accordion" id="journalAccordion">
+                <div class="accordion-item bg-dark border-danger">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button
+                      class="accordion-button bg-secondary text-light"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#entryOne"
+                      aria-expanded="true"
+                      aria-controls="entryOne"
+                    >
+                      Most Recent Entry
+                    </button>
+                  </h2>
+                  <div
+                    id="entryOne"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="headingOne"
+                    data-bs-parent="#journalAccordion"
+                  >
+                    <div
+                      id="latestJournalEntry"
+                      class="accordion-body text-light"
+                    >
+                      Loading latest journal entry...
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item bg-dark border-danger">
-                <h2 class="accordion-header" id="headingTwo">
-                  <button class="accordion-button bg-secondary text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#entryTwo" aria-expanded="false" aria-controls="entryTwo">
-                    Second Most Recent Entry
-                  </button>
-                </h2>
-                <div id="entryTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#journalAccordion">
-                  <div id="secondLatestJournalEntry" class="accordion-body text-light">
-                    Loading second most recent journal entry...
+                <div class="accordion-item bg-dark border-danger">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button
+                      class="accordion-button bg-secondary text-light collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#entryTwo"
+                      aria-expanded="false"
+                      aria-controls="entryTwo"
+                    >
+                      Second Most Recent Entry
+                    </button>
+                  </h2>
+                  <div
+                    id="entryTwo"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingTwo"
+                    data-bs-parent="#journalAccordion"
+                  >
+                    <div
+                      id="secondLatestJournalEntry"
+                      class="accordion-body text-light"
+                    >
+                      Loading second most recent journal entry...
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item bg-dark border-danger">
-                <h2 class="accordion-header" id="headingThree">
-                  <button class="accordion-button bg-secondary text-light collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#entryThree" aria-expanded="false" aria-controls="entryThree">
-                    Third Most Recent Entry
-                  </button>
-                </h2>
-                <div id="entryThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#journalAccordion">
-                  <div id="thirdLatestJournalEntry" class="accordion-body text-light">
-                    Loading third most recent journal entry...
+                <div class="accordion-item bg-dark border-danger">
+                  <h2 class="accordion-header" id="headingThree">
+                    <button
+                      class="accordion-button bg-secondary text-light collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#entryThree"
+                      aria-expanded="false"
+                      aria-controls="entryThree"
+                    >
+                      Third Most Recent Entry
+                    </button>
+                  </h2>
+                  <div
+                    id="entryThree"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingThree"
+                    data-bs-parent="#journalAccordion"
+                  >
+                    <div
+                      id="thirdLatestJournalEntry"
+                      class="accordion-body text-light"
+                    >
+                      Loading third most recent journal entry...
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
-  </main>
-  
-  <!-- Footer -->
-  <footer class="bg-black text-center py-3 border-top border-3 border-danger">
-    <div class="container">
-      <small>&copy; 2025 My Portfolio & Journal</small>
-    </div>
-  </footer>
-  
-  <!-- Bootstrap Bundle with Popper for interactive components -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <!-- Load Latest Journal Entries -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const latestEntryContainer = document.getElementById("latestJournalEntry");
-      const secondLatestEntryContainer = document.getElementById("secondLatestJournalEntry");
-      const thirdLatestEntryContainer = document.getElementById("thirdLatestJournalEntry");
+        </section>
+      </div>
+    </main>
 
-      function loadJournalEntries() {
-        fetch('/api/journal')
-          .then(response => response.json())
-          .then(entries => {
-            console.log("Loaded journal entries:", entries); // Debug log
+    <!-- Footer -->
+    <footer class="bg-black text-center py-3 border-top border-3 border-danger">
+      <div class="container">
+        <small>&copy; 2025 My Portfolio & Journal</small>
+      </div>
+    </footer>
 
-            if (entries.length > 0) {
-              latestEntryContainer.innerHTML = `<strong>${entries[0].title}</strong><br>${entries[0].content}`;
-            } else {
-              latestEntryContainer.innerHTML = "No journal entries available.";
-            }
+    <!-- Bootstrap Bundle with Popper for interactive components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-            if (entries.length > 1) {
-              secondLatestEntryContainer.innerHTML = `<strong>${entries[1].title}</strong><br>${entries[1].content}`;
-            } else {
-              secondLatestEntryContainer.innerHTML = "No second journal entry available.";
-            }
+    <!-- Load Latest Journal Entries -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const latestEntryContainer =
+          document.getElementById("latestJournalEntry");
+        const secondLatestEntryContainer = document.getElementById(
+          "secondLatestJournalEntry"
+        );
+        const thirdLatestEntryContainer = document.getElementById(
+          "thirdLatestJournalEntry"
+        );
 
-            if (entries.length > 2) {
-              thirdLatestEntryContainer.innerHTML = `<strong>${entries[2].title}</strong><br>${entries[2].content}`;
-            } else {
-              thirdLatestEntryContainer.innerHTML = "No third journal entry available.";
-            }
-          })
-          .catch(error => {
-            console.error("Error fetching journal entries:", error);
-            latestEntryContainer.innerHTML = "Failed to load journal entries.";
-            secondLatestEntryContainer.innerHTML = "Failed to load journal entries.";
-            thirdLatestEntryContainer.innerHTML = "Failed to load journal entries.";
-          });
-      }
+        function loadJournalEntries() {
+          fetch("/api/journal")
+            .then((response) => response.json())
+            .then((entries) => {
+              console.log("Loaded journal entries:", entries); // Debug log
 
-      loadJournalEntries();
-    });
-  </script>
+              if (entries.length > 0) {
+                latestEntryContainer.innerHTML = `<strong>${entries[0].title}</strong><br>${entries[0].content}`;
+              } else {
+                latestEntryContainer.innerHTML =
+                  "No journal entries available.";
+              }
 
-  <!-- Fetch GitHub Repository Details -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const repoDetailsContainer = document.getElementById("repoDetails");
-      const username = "SassBlanket98"; // Replace with your GitHub username
-      const repoName = "My-Ultimate-Website"; // Replace with your repository name
+              if (entries.length > 1) {
+                secondLatestEntryContainer.innerHTML = `<strong>${entries[1].title}</strong><br>${entries[1].content}`;
+              } else {
+                secondLatestEntryContainer.innerHTML =
+                  "No second journal entry available.";
+              }
 
-      function fetchRepoDetails() {
-        fetch(`https://api.github.com/repos/${username}/${repoName}`)
-          .then(response => response.json())
-          .then(repo => {
-            const repoDetails = `
+              if (entries.length > 2) {
+                thirdLatestEntryContainer.innerHTML = `<strong>${entries[2].title}</strong><br>${entries[2].content}`;
+              } else {
+                thirdLatestEntryContainer.innerHTML =
+                  "No third journal entry available.";
+              }
+            })
+            .catch((error) => {
+              console.error("Error fetching journal entries:", error);
+              latestEntryContainer.innerHTML =
+                "Failed to load journal entries.";
+              secondLatestEntryContainer.innerHTML =
+                "Failed to load journal entries.";
+              thirdLatestEntryContainer.innerHTML =
+                "Failed to load journal entries.";
+            });
+        }
+
+        loadJournalEntries();
+      });
+    </script>
+
+    <!-- Fetch GitHub Repository Details -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const repoDetailsContainer = document.getElementById("repoDetails");
+        const username = "SassBlanket98"; // Replace with your GitHub username
+        const repoName = "My-Ultimate-Website"; // Replace with your repository name
+
+        function fetchRepoDetails() {
+          fetch(`https://api.github.com/repos/${username}/${repoName}`)
+            .then((response) => response.json())
+            .then((repo) => {
+              const repoDetails = `
               <h5>${repo.name}</h5>
               <p>${repo.description}</p>
               <p>🌟 ${repo.stargazers_count} | 🍴 ${repo.forks_count}</p>
-              <p>🔗 <a href="${repo.html_url}" target="_blank">${repo.html_url}</a></p>
-              <p>🕒 Last updated: ${new Date(repo.updated_at).toDateString()}</p>
-              <a href="${repo.html_url}" class="btn btn-danger" target="_blank">View on GitHub</a>
+              <p>🔗 <a href="${repo.html_url}" target="_blank">${
+                repo.html_url
+              }</a></p>
+              <p>🕒 Last updated: ${new Date(
+                repo.updated_at
+              ).toDateString()}</p>
+              <a href="${
+                repo.html_url
+              }" class="btn btn-danger" target="_blank">View on GitHub</a>
             `;
-            repoDetailsContainer.innerHTML = repoDetails;
-          })
-          .catch(error => {
-            console.error("Error fetching repository details:", error);
-            repoDetailsContainer.innerHTML = "<p>Failed to load repository details.</p>";
-          });
-      }
+              repoDetailsContainer.innerHTML = repoDetails;
+            })
+            .catch((error) => {
+              console.error("Error fetching repository details:", error);
+              repoDetailsContainer.innerHTML =
+                "<p>Failed to load repository details.</p>";
+            });
+        }
 
-      fetchRepoDetails();
-    });
+        fetchRepoDetails();
+      });
 
-    document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", function () {
         const repoDetailsContainer = document.getElementById("repoDetails");
         const commitsContainer = document.getElementById("latestCommits");
         const username = "SassBlanket98"; // Replace with your GitHub username
         const repoName = "My-Ultimate-Website"; // Replace with your repository name
 
         function fetchRepoDetails() {
-            fetch(`https://api.github.com/repos/${username}/${repoName}`)
-                .then(response => response.json())
-                .then(repo => {
-                    const repoDetails = `
+          fetch(`https://api.github.com/repos/${username}/${repoName}`)
+            .then((response) => response.json())
+            .then((repo) => {
+              const repoDetails = `
                         <h5>${repo.name}</h5>
                         <p>${repo.description}</p>
-                        <p>🌟 ${repo.stargazers_count} | 🍴 ${repo.forks_count}</p>
-                        <p>🔗 <a href="${repo.html_url}" target="_blank">${repo.html_url}</a></p>
-                        <p>🕒 Last updated: ${new Date(repo.updated_at).toDateString()}</p>
-                        <a href="${repo.html_url}" class="btn btn-danger" target="_blank">View on GitHub</a>
+                        <p>🌟 ${repo.stargazers_count} | 🍴 ${
+                repo.forks_count
+              }</p>
+                        <p>🔗 <a href="${repo.html_url}" target="_blank">${
+                repo.html_url
+              }</a></p>
+                        <p>🕒 Last updated: ${new Date(
+                          repo.updated_at
+                        ).toDateString()}</p>
+                        <a href="${
+                          repo.html_url
+                        }" class="btn btn-danger" target="_blank">View on GitHub</a>
                     `;
-                    repoDetailsContainer.innerHTML = repoDetails;
-                })
-                .catch(error => {
-                    console.error("Error fetching repository details:", error);
-                    repoDetailsContainer.innerHTML = "<p>Failed to load repository details.</p>";
-                });
+              repoDetailsContainer.innerHTML = repoDetails;
+            })
+            .catch((error) => {
+              console.error("Error fetching repository details:", error);
+              repoDetailsContainer.innerHTML =
+                "<p>Failed to load repository details.</p>";
+            });
         }
 
         function fetchLatestCommits() {
-            fetch(`https://api.github.com/repos/${username}/${repoName}/commits`)
-                .then(response => response.json())
-                .then(commits => {
-                    let commitList = `<h5>Latest Commits</h5><ul class="list-group">`;
-                    commits.slice(0, 5).forEach(commit => {
-                        commitList += `
+          fetch(`https://api.github.com/repos/${username}/${repoName}/commits`)
+            .then((response) => response.json())
+            .then((commits) => {
+              let commitList = `<h5>Latest Commits</h5><ul class="list-group">`;
+              commits.slice(0, 5).forEach((commit) => {
+                commitList += `
                             <li class="list-group-item bg-secondary text-light">
                                 <strong>${commit.commit.message}</strong>
-                                <br>by ${commit.commit.author.name} on ${new Date(commit.commit.author.date).toDateString()}
+                                <br>by ${
+                                  commit.commit.author.name
+                                } on ${new Date(
+                  commit.commit.author.date
+                ).toDateString()}
                             </li>`;
-                    });
-                    commitList += `</ul>`;
-                    commitsContainer.innerHTML = commitList;
-                })
-                .catch(error => {
-                    console.error("Error fetching commits:", error);
-                    commitsContainer.innerHTML = "<p>Failed to load commits.</p>";
-                });
+              });
+              commitList += `</ul>`;
+              commitsContainer.innerHTML = commitList;
+            })
+            .catch((error) => {
+              console.error("Error fetching commits:", error);
+              commitsContainer.innerHTML = "<p>Failed to load commits.</p>";
+            });
         }
 
         fetchRepoDetails();
         fetchLatestCommits();
-    });
-  </script>
-</body>
+      });
+    </script>
+  </body>
 </html>
