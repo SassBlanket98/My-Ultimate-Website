@@ -1,64 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects - My GitHub Repos</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/custom.css">
-</head>
-<body class="bg-dark text-light">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-3 border-danger">
-    <div class="container">
-      <a class="navbar-brand text-danger" href="index.html">My Portfolio</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarContent">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" href="projects.html" class="active">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="journal.html">Journal</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projects</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/custom.css">
+    </head>
+    <body class="bg-dark text-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-3 border-danger">
+            <div class="container">
+                <a class="navbar-brand text-danger" href="index.html">David's Website</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent"
+                    aria-controls="navbarContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="projects.html" class="active">Projects
+                            </a
+              >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="journal.html">Journal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="container my-5">
+            <h1 class="text-center text-danger">My GitHub Projects</h1>
+            <div id="repoContainer" class="row gy-4"></div>
+        </section>
+        <footer class="bg-black text-center py-3 border-top border-3 border-danger">
+            <div class="container">
+                <small>&copy; 2025 My Portfolio</small>
+            </div>
+        </footer>
+        <script>
+      async function fetchRepositories() {
+        try {
+          let response = await fetch("http://localhost:3000/api/repos");
+          if (!response.ok) {
+            throw new Error(
+              `API error: ${response.status} ${response.statusText}`
+            );
+          }
 
-  <section class="container my-5">
-    <h1 class="text-center text-danger">My GitHub Projects</h1>
-    <div id="repoContainer" class="row gy-4"></div>
-  </section>
+          let repos = await response.json();
+          console.log("Fetched Repositories:", repos); // Debugging output
 
-  <footer class="bg-black text-center py-3 border-top border-3 border-danger">
-    <div class="container">
-      <small>&copy; 2025 My Portfolio</small>
-    </div>
-  </footer>
+          const repoContainer = document.getElementById("repoContainer");
+          repoContainer.innerHTML = "";
 
-  <script>
-    async function fetchRepositories() {
-      try {
-        let response = await fetch('http://localhost:3000/api/repos');
-        if (!response.ok) {
-          throw new Error(`API error: ${response.status} ${response.statusText}`);
-        }
+          for (let repo of repos.slice(0, 6)) {
+            let languagesResponse = await fetch(
+              `http://localhost:3000/api/languages?url=${encodeURIComponent(
+                repo.languages_url
+              )}`
+            );
+            let languages = await languagesResponse.json();
+            let languagesList = Object.keys(languages).join(", ") || "Unknown";
 
-        let repos = await response.json();
-        console.log('Fetched Repositories:', repos); // Debugging output
+            let commitsResponse = await fetch(
+              `http://localhost:3000/api/commits?url=${repo.commits_url.replace(
+                "{/sha}",
+                ""
+              )}`
+            );
+            let commits = await commitsResponse.json();
+            let latestCommits = commits
+              .slice(0, 3)
+              .map(
+                (commit) =>
+                  `<li>${commit.commit.message} by ${commit.commit.author.name}</li>`
+              )
+              .join("\n");
 
-        const repoContainer = document.getElementById("repoContainer");
-        repoContainer.innerHTML = "";
-
-        for (let repo of repos.slice(0, 6)) {
-          let languagesResponse = await fetch(`http://localhost:3000/api/languages?url=${encodeURIComponent(repo.languages_url)}`);
-          let languages = await languagesResponse.json();
-          let languagesList = Object.keys(languages).join(", ") || "Unknown";
-
-          let commitsResponse = await fetch(`http://localhost:3000/api/commits?url=${repo.commits_url.replace("{/sha}", "")}`);
-          let commits = await commitsResponse.json();
-          let latestCommits = commits.slice(0, 3).map(commit => `<li>${commit.commit.message} by ${commit.commit.author.name}</li>`).join("\n");
-
-          let repoCard = `
+            let repoCard = `
             <div class="col-md-6">
               <div class="card bg-secondary border-danger">
                 <div class="card-header text-danger">${repo.name}</div>
@@ -66,22 +99,23 @@
                   <p>${repo.description || "No description available"}</p>
                   <p>Languages: ${languagesList}</p>
                   <p>⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count}</p>
-                  <p>Last updated: ${new Date(repo.updated_at).toLocaleDateString()}</p>
+                  <p>Last updated: ${new Date(
+                    repo.updated_at
+                  ).toLocaleDateString()}</p>
                   <ul>${latestCommits}</ul>
                 </div>
               </div>
             </div>
           `;
-          repoContainer.innerHTML += repoCard;
+            repoContainer.innerHTML += repoCard;
+          }
+        } catch (error) {
+          console.error("Error fetching data:", error);
         }
-      } catch (error) {
-        console.error('Error fetching data:', error);
       }
-    }
 
-    fetchRepositories();
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+      fetchRepositories();
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
