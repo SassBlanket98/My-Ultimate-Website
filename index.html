@@ -115,7 +115,7 @@
     document.addEventListener("DOMContentLoaded", function () {
       const repoDetailsContainer = document.getElementById("repoDetails");
       const username = "SassBlanket98"; // Replace with your GitHub username
-      const repoName = "YT-Downloader"; // Replace with your repository name
+      const repoName = "My-Ultimate-Website"; // Replace with your repository name
 
       function fetchRepoDetails() {
         fetch(`https://api.github.com/repos/${username}/${repoName}`)
@@ -124,8 +124,9 @@
             const repoDetails = `
               <h5>${repo.name}</h5>
               <p>${repo.description}</p>
-              <p><strong>Stars:</strong> ${repo.stargazers_count}</p>
-              <p><strong>Forks:</strong> ${repo.forks_count}</p>
+              <p>🌟 ${repo.stargazers_count} | 🍴 ${repo.forks_count}</p>
+              <p>🔗 <a href="${repo.html_url}" target="_blank">${repo.html_url}</a></p>
+              <p>🕒 Last updated: ${new Date(repo.updated_at).toDateString()}</p>
               <a href="${repo.html_url}" class="btn btn-danger" target="_blank">View on GitHub</a>
             `;
             repoDetailsContainer.innerHTML = repoDetails;
