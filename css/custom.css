@@ -1,0 +1,59 @@
+/* custom.css */
+
+/* Override Bootstrap's background colors and text colors where needed */
+.bg-black {
+    background-color: #121212 !important;
+  }
+  
+  .bg-secondary {
+    background-color: #1e1e1e !important;
+  }
+  
+  .text-light {
+    color: #f0f0f0 !important;
+  }
+  
+  /* Custom link colors in navbar */
+  .navbar .nav-link {
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar .nav-link:hover {
+    background-color: #c62828;
+    border-radius: 5px;
+  }
+  
+  /* Customize card header */
+  .card-header {
+    font-weight: bold;
+  }
+  
+  /* Hero section styling */
+  .hero {
+    background: linear-gradient(135deg, #c62828, #000);
+    border-radius: 10px;
+  }
+  
+  /* Ensure buttons maintain the red theme */
+  .btn-danger {
+    background-color: #c62828;
+    border-color: #c62828;
+  }
+  
+  .btn-danger:hover {
+    background-color: #a71d1d;
+    border-color: #a71d1d;
+  }
+  
+  /* Accordion custom styling */
+  .accordion-button {
+    background-color: #1e1e1e;
+    border: 1px solid #c62828;
+  }
+  
+  .accordion-button:not(.collapsed) {
+    background-color: #c62828;
+    color: #f0f0f0;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
+  }
+  
