@@ -32,6 +32,14 @@ const db = new sqlite3.Database('journal.db', (err) => {
     }
 });
 
+const corsOptions = {
+    origin: 'http://localhost:3001', // Allow requests from your front-end
+    methods: 'GET,POST', 
+    allowedHeaders: 'Content-Type,Authorization'
+};
+app.use(cors(corsOptions));
+
+
 // Serve static files from the root directory
 app.use(express.static(path.join(__dirname)));
 
@@ -81,10 +89,11 @@ app.get('/api/repos', async (req, res) => {
         });
         res.json(response.data);
     } catch (error) {
-        console.error('Error fetching repositories:', error.message);
-        res.status(500).send('Error fetching repositories');
+        console.error('Error fetching repositories:', error.response ? error.response.data : error.message);
+        res.status(500).json({ error: error.response ? error.response.data : 'Unknown error' });
     }
 });
+
 
 app.get('/api/languages', async (req, res) => {
     const { url } = req.query;
